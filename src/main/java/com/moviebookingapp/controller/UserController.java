@@ -35,13 +35,13 @@ public class UserController {
 	}
 
 	@PostMapping("login")
-	public ResponseEntity<?> validateUser(@RequestParam("loginid") String loginid,
+	public ResponseEntity<User> validateUser(@RequestParam("loginid") String loginid,
 			@RequestParam("password") String password) {
 		User user = userService.validateUser(loginid, password);
 		if (user != null) {
-			return new ResponseEntity<User>(user, HttpStatus.OK);
+			return new ResponseEntity<>(user, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<String>("Invalid credentials...", HttpStatus.UNAUTHORIZED);
+			return new ResponseEntity<>(null, HttpStatus.UNAUTHORIZED);
 		}
 	}
 
