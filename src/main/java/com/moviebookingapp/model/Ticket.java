@@ -11,17 +11,17 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Document(collection = "Movie")
-public class Movie {
+@Document(collection = "Ticket")
+public class Ticket {
 
 	@Transient
-    public static final String SEQUENCE_NAME = "movie_sequence";
+    public static final String SEQUENCE_NAME = "ticket_sequence";
 	
 	@Id
 	private long id;
 	
 	private String moviename;
-	private String director;
 	private String theatrename;
-	private int totalnooftickets;
+	private int nooftickets;
+	private String seats;
 }
