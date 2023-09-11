@@ -18,6 +18,9 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User addUser(User user) throws Exception{
+		if(user.getRole()==null){
+			user.setRole("User");
+		}
 		if (userRepository.findByLoginid(user.getLoginid()) == null) {
 			if (validatePassword(user.getPassword(), user.getConfirmpassword())) {
 				user.setId(sequenceGeneratorService.generateSequence(User.SEQUENCE_NAME));
